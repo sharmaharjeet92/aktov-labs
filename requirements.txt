@@ -1,3 +1,8 @@
 aktov>=0.3.1
 langchain-core>=0.3
 openai-agents>=0.1
+
+# Live demo (demo_live_langchain.py)
+langchain-anthropic>=1.0
+langchain>=1.0
+python-dotenv>=1.0
