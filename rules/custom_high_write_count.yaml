@@ -1,0 +1,13 @@
+rule_id: CUSTOM-001
+name: high_write_count
+severity: high
+category: suspicious_behavior
+description: >
+  Fires when an agent performs 3 or more write operations in a single trace.
+  Useful for detecting bulk data modification or export patterns.
+match:
+  count:
+    conditions:
+      - field: tool_category
+        equals: "write"
+    min_count: 3
