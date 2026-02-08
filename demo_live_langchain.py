@@ -113,14 +113,14 @@ def main() -> None:
         fail("langchain-anthropic not installed. Run: pip install langchain-anthropic")
         sys.exit(1)
 
+    import warnings
     try:
-        from langchain.agents import create_agent as create_react_agent
-    except ImportError:
-        try:
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", DeprecationWarning)
             from langgraph.prebuilt import create_react_agent
-        except ImportError:
-            fail("langgraph not installed. Run: pip install langgraph")
-            sys.exit(1)
+    except ImportError:
+        fail("langgraph not installed. Run: pip install langgraph")
+        sys.exit(1)
 
     from langchain_core.tools import tool
 
